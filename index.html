@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A1 Rental Mobil & Motor Makassar</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="shortcut icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -46,7 +49,7 @@
 
             <div class="hero-btn">
                 <a href="#armada" class="btn-primary">Lihat Armada</a>
-                <a href="booking.html" class="btn-secondary">Pesan Sekarang</a>
+                <a href="https://wa.me/6282197448850?text=Halo%20admin%20A1%20Rental%2C%20saya%20ingin%20booking%20kendaraan." target="_blank" class="btn-secondary">Pesan Sekarang</a>
             </div>
 
             <div class="info">
@@ -372,7 +375,13 @@ const localImageMap = {
     'pajero sport dakkar': 'img/Pajero Sport Dakkar.png',
     'hiace commuter': 'img/Hiace Commuter.png',
     'hiace premio': 'img/Hiace Premio.png',
-    'new alphard': 'img/New Alphard.png'
+    'new alphard': 'img/New Alphard.png',
+    'pcx 150 cc': 'img/PCX 150 cc.png',
+    'nmax 150 cc': 'img/NMAX 150 cc.png',
+    'vario 125 cc': 'img/Vario 125 cc.png',
+    'fino 125 cc': 'img/Fino 125 cc.png',
+    'scoopy 125 cc': 'img/Scoopy 125 cc.png',
+    'genio 110 cc': 'img/Genio 110 cc.png'
 };
 
 function getSpecs(vehicleName) {
@@ -389,7 +398,7 @@ function getSpecs(vehicleName) {
     return ['Kondisi Prima', 'Perawatan Rutin', 'Siap Jalan'];
 }
 
-const carCategoryIds = ['lepas', 'driver', 'allin', 'bandara'];
+const carCategoryIds = ['lepas', 'driver', 'allin', 'bandara', 'motor'];
 
 carCategoryIds.forEach(categoryId => {
     const category = document.getElementById(categoryId);
