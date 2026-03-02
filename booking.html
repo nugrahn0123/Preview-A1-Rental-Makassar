@@ -30,6 +30,35 @@
 	gtag('js', new Date());
 
 	gtag('config', 'AW-17987800394');
+
+	function gtag_report_conversion(url) {
+		const fallbackRedirect = () => {
+			if (url) {
+				window.location.href = url;
+			}
+		};
+
+		if (typeof gtag !== 'function') {
+			fallbackRedirect();
+			return false;
+		}
+
+		let hasRedirected = false;
+		const callback = function () {
+			if (hasRedirected) return;
+			hasRedirected = true;
+			fallbackRedirect();
+		};
+
+		gtag('event', 'conversion', {
+			'send_to': 'AW-17987800394/dvFRCIK0zoEcEMqaoIFD',
+			'event_callback': callback,
+			'event_timeout': 2000
+		});
+
+		setTimeout(callback, 2100);
+		return false;
+	}
 </script>
 
 <link rel="stylesheet" href="style.css">
@@ -309,7 +338,8 @@ function sendToWhatsApp(data) {
 		`Catatan: ${catatan || '-'}`
 	].join('\n');
 
-	window.location.href = `https://wa.me/6282197448850?text=${encodeURIComponent(message)}`;
+	const waUrl = `https://wa.me/6282197448850?text=${encodeURIComponent(message)}`;
+	gtag_report_conversion(waUrl);
 }
 
 populateLayanan();
