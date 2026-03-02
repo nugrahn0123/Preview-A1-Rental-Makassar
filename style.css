@@ -132,7 +132,7 @@ nav a:hover::after {
     padding: 150px 80px;
     background:
         linear-gradient(110deg, rgba(10, 10, 10, 0.86) 0%, rgba(50, 0, 0, 0.68) 45%, rgba(8, 8, 8, 0.84) 100%),
-        url('https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1800');
+        url('https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1800');
     background-size: cover;
     background-position: center;
     position: relative;
