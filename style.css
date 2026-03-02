@@ -37,9 +37,9 @@ body::before {
 }
 
 .logo-area img {
-    height: 60px;
+    height: 64px;
     background: white;
-    padding: 5px 10px;
+    padding: 3px 8px;
     border-radius: 10px;
 }
 
