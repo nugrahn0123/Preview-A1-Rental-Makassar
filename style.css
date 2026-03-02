@@ -1034,6 +1034,15 @@ footer {
         font-size: 36px;
     }
 
+    .armada h2,
+    .syarat h2,
+    .testimoni h2,
+    .saran h2,
+    .tentang h2,
+    .kontak h2 {
+        text-align: center;
+    }
+
     .logo-text {
         font-size: 13px;
         max-width: 150px;
