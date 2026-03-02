@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Booking - A1 Rental Makassar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar booking-navbar">
+	<div class="logo-area">
+		<img src="logo.png" alt="A1 Rental Makassar">
+		<span class="logo-text">A1 Rental Mobil & Motor Makassar</span>
+	</div>
+	<nav class="booking-nav-link">
+		<a href="index.html#armada" class="btn-secondary">← Kembali ke Daftar Armada</a>
+	</nav>
+</header>
+
+<main class="booking-page">
+	<section class="booking-wrapper">
+		<div class="booking-card booking-form-card">
+			<h1>Form Booking</h1>
+			<p class="booking-intro">Isi data di bawah ini, harga akan terhitung otomatis sesuai layanan, unit, dan durasi sewa.</p>
+
+			<form id="bookingForm" class="booking-form">
+				<div class="form-group">
+					<label for="nama">Nama Lengkap</label>
+					<input type="text" id="nama" required placeholder="Contoh: Andi Pratama">
+				</div>
+
+				<div class="form-group">
+					<label for="noWa">Nomor WhatsApp</label>
+					<input type="tel" id="noWa" required placeholder="Contoh: 0812xxxxxx">
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="layanan">Jenis Layanan</label>
+						<select id="layanan" required></select>
+					</div>
+
+					<div class="form-group">
+						<label for="unit">Mobil / Motor</label>
+						<select id="unit" required></select>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label for="tanggal">Tanggal Booking</label>
+						<input type="date" id="tanggal" required>
+					</div>
+
+					<div class="form-group">
+						<label for="durasi" id="durasiLabel">Durasi (Hari)</label>
+						<input type="number" id="durasi" min="1" value="1" required>
+					</div>
+				</div>
+
+				<div class="form-check">
+					<input type="checkbox" id="luarKota">
+					<label for="luarKota" id="luarKotaLabel">Luar kota (tambahan biaya)</label>
+				</div>
+
+				<div class="form-group">
+					<label for="catatan">Catatan Tambahan (Opsional)</label>
+					<textarea id="catatan" rows="3" placeholder="Contoh: Jemput di Bandara Sultan Hasanuddin"></textarea>
+				</div>
+
+				<button type="submit" class="btn-primary booking-submit booking-submit-desktop">Booking Sekarang</button>
+			</form>
+		</div>
+
+		<aside class="booking-card booking-summary" id="summaryBox">
+			<h2>Ringkasan Harga</h2>
+			<div class="summary-line"><span>Layanan</span><strong id="sumLayanan">-</strong></div>
+			<div class="summary-line"><span>Unit</span><strong id="sumUnit">-</strong></div>
+			<div class="summary-line"><span>Tarif Dasar</span><strong id="sumTarif">Rp 0</strong></div>
+			<div class="summary-line"><span>Durasi</span><strong id="sumDurasi">0</strong></div>
+			<div class="summary-line"><span>Tambahan Luar Kota</span><strong id="sumLuarKota">Rp 0</strong></div>
+			<div class="summary-line total"><span>Total Estimasi</span><strong id="sumTotal">Rp 0</strong></div>
+			<small>*Harga final dikonfirmasi admin saat chat WhatsApp.</small>
+		</aside>
+
+		<button type="submit" form="bookingForm" class="btn-primary booking-submit booking-submit-mobile">Booking Sekarang</button>
+	</section>
+</main>
+
+<script>
+const PRICE_DATA = {
+	lepas: {
+		label: 'Lepas Kunci (24 Jam)',
+		unitLabel: 'Hari',
+		outsideRate: 50000,
+		vehicles: {
+			'Brio': 350000,
+			'All New Avanza': 350000,
+			'All New Xenia': 350000,
+			'Rush': 400000,
+			'Terios': 400000,
+			'Xpander': 400000,
+			'Innova Reborn': 450000,
+			'Innova Zenix Bensin': 600000,
+			'Innova Zenix Hybrid': 700000,
+			'Fortuner GR': 1000000,
+			'Pajero Sport Dakkar': 1100000
+		}
+	},
+	driver: {
+		label: 'Mobil Include Driver (12 Jam)',
+		unitLabel: 'Hari',
+		outsideRate: 150000,
+		vehicles: {
+			'All New Avanza': 500000,
+			'Rush': 550000,
+			'Terios': 550000,
+			'Xpander': 550000,
+			'Innova Reborn': 600000,
+			'Innova Zenix Bensin': 750000,
+			'Innova Zenix Hybrid': 850000,
+			'Fortuner GR': 1150000,
+			'Pajero Sport Dakkar': 1250000,
+			'Hiace Commuter': 1250000,
+			'Hiace Premio': 1350000,
+			'New Alphard': 2600000
+		}
+	},
+	allin: {
+		label: 'Mobil All In Dalam Kota (12 Jam)',
+		unitLabel: 'Hari',
+		outsideRate: 0,
+		vehicles: {
+			'All New Avanza': 800000,
+			'Rush': 850000,
+			'Terios': 850000,
+			'Xpander': 850000,
+			'Innova Reborn': 900000,
+			'Innova Zenix Bensin': 1050000,
+			'Innova Zenix Hybrid': 1150000,
+			'Innova Zenix Q Hybrid': 1250000,
+			'Fortuner GR': 1450000,
+			'Pajero Sport Dakkar': 1550000,
+			'Hiace Commuter': 1550000,
+			'Hiace Premio': 1600000,
+			'New Alphard': 2900000
+		}
+	},
+	bandara: {
+		label: 'Antar Jemput Bandara All In',
+		unitLabel: 'Trip',
+		outsideRate: 0,
+		vehicles: {
+			'Avanza': 250000,
+			'Innova Reborn': 400000,
+			'Innova Zenix': 500000
+		}
+	},
+	motor: {
+		label: 'Motor 24 Jam',
+		unitLabel: 'Hari',
+		outsideRate: 0,
+		vehicles: {
+			'PCX 150 cc': 150000,
+			'NMAX 150 cc': 150000,
+			'Vario 125 cc': 100000,
+			'Fino 125 cc': 100000,
+			'Scoopy 125 cc': 100000,
+			'Genio 110 cc': 100000
+		}
+	}
+};
+
+const layananSelect = document.getElementById('layanan');
+const unitSelect = document.getElementById('unit');
+const durasiInput = document.getElementById('durasi');
+const durasiLabel = document.getElementById('durasiLabel');
+const luarKotaInput = document.getElementById('luarKota');
+const luarKotaLabel = document.getElementById('luarKotaLabel');
+const bookingForm = document.getElementById('bookingForm');
+
+const summary = {
+	layanan: document.getElementById('sumLayanan'),
+	unit: document.getElementById('sumUnit'),
+	tarif: document.getElementById('sumTarif'),
+	durasi: document.getElementById('sumDurasi'),
+	luarKota: document.getElementById('sumLuarKota'),
+	total: document.getElementById('sumTotal')
+};
+
+const urlParams = new URLSearchParams(window.location.search);
+const presetLayanan = urlParams.get('layanan');
+const presetUnit = urlParams.get('unit');
+
+function formatRupiah(value) {
+	return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(value);
+}
+
+function populateLayanan() {
+	layananSelect.innerHTML = '';
+	Object.entries(PRICE_DATA).forEach(([key, config]) => {
+		const option = document.createElement('option');
+		option.value = key;
+		option.textContent = config.label;
+		layananSelect.appendChild(option);
+	});
+
+	if (presetLayanan && PRICE_DATA[presetLayanan]) {
+		layananSelect.value = presetLayanan;
+	}
+}
+
+function populateUnit() {
+	const layanan = layananSelect.value;
+	const config = PRICE_DATA[layanan];
+
+	unitSelect.innerHTML = '';
+	Object.keys(config.vehicles).forEach(vehicle => {
+		const option = document.createElement('option');
+		option.value = vehicle;
+		option.textContent = vehicle;
+		unitSelect.appendChild(option);
+	});
+
+	if (presetUnit && config.vehicles[presetUnit]) {
+		unitSelect.value = presetUnit;
+	}
+
+	durasiLabel.textContent = `Durasi (${config.unitLabel})`;
+	luarKotaInput.checked = false;
+
+	if (config.outsideRate > 0) {
+		luarKotaInput.disabled = false;
+		luarKotaLabel.textContent = `Luar kota (+${formatRupiah(config.outsideRate)} / ${config.unitLabel.toLowerCase()})`;
+	} else {
+		luarKotaInput.disabled = true;
+		luarKotaLabel.textContent = 'Luar kota (tidak tersedia untuk layanan ini)';
+	}
+}
+
+function calculateTotal() {
+	const layanan = layananSelect.value;
+	const vehicle = unitSelect.value;
+	const config = PRICE_DATA[layanan];
+	const baseRate = config.vehicles[vehicle] || 0;
+	const duration = Math.max(1, Number(durasiInput.value) || 1);
+	const outsideFee = luarKotaInput.checked ? config.outsideRate * duration : 0;
+	const total = (baseRate * duration) + outsideFee;
+
+	summary.layanan.textContent = config.label;
+	summary.unit.textContent = vehicle || '-';
+	summary.tarif.textContent = formatRupiah(baseRate);
+	summary.durasi.textContent = `${duration} ${config.unitLabel}`;
+	summary.luarKota.textContent = formatRupiah(outsideFee);
+	summary.total.textContent = formatRupiah(total);
+
+	return { layanan, vehicle, config, baseRate, duration, outsideFee, total };
+}
+
+function sendToWhatsApp(data) {
+	const nama = document.getElementById('nama').value.trim();
+	const noWa = document.getElementById('noWa').value.trim();
+	const tanggal = document.getElementById('tanggal').value;
+	const catatan = document.getElementById('catatan').value.trim();
+
+	const message = [
+		'Halo admin A1 Rental, saya ingin booking dengan detail berikut:',
+		'',
+		`Nama: ${nama}`,
+		`No. WA: ${noWa}`,
+		`Tanggal Booking: ${tanggal}`,
+		`Jenis Layanan: ${data.config.label}`,
+		`Unit: ${data.vehicle}`,
+		`Durasi: ${data.duration} ${data.config.unitLabel}`,
+		`Tarif Dasar: ${formatRupiah(data.baseRate)}`,
+		`Tambahan Luar Kota: ${formatRupiah(data.outsideFee)}`,
+		`Total Estimasi: ${formatRupiah(data.total)}`,
+		`Catatan: ${catatan || '-'}`
+	].join('\n');
+
+	window.location.href = `https://wa.me/6282197448850?text=${encodeURIComponent(message)}`;
+}
+
+populateLayanan();
+populateUnit();
+calculateTotal();
+
+layananSelect.addEventListener('change', () => {
+	populateUnit();
+	calculateTotal();
+});
+
+unitSelect.addEventListener('change', calculateTotal);
+durasiInput.addEventListener('input', calculateTotal);
+luarKotaInput.addEventListener('change', calculateTotal);
+
+bookingForm.addEventListener('submit', (event) => {
+	event.preventDefault();
+	const result = calculateTotal();
+	sendToWhatsApp(result);
+});
+</script>
+
+</body>
+</html>
