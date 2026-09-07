@@ -522,9 +522,17 @@ carCategoryIds.forEach(categoryId => {
 
         const actionWrap = document.createElement('div');
         actionWrap.className = 'item-actions';
-        const bookingLink = `booking.html?layanan=${encodeURIComponent(categoryId)}&unit=${encodeURIComponent(modelName)}`;
+        const layananLabels = {
+            lepas: 'Lepas Kunci',
+            driver: 'Include Driver',
+            allin: 'All In (Driver + BBM)',
+            bandara: 'Antar Jemput Bandara',
+            motor: 'Sewa Motor'
+        };
+        const waBookingMessage = `Halo admin A1 Rental, saya ingin booking unit ${modelName} untuk layanan ${layananLabels[categoryId] || categoryId}.`;
+        const waBookingLink = `https://wa.me/6282197448850?text=${encodeURIComponent(waBookingMessage)}`;
         actionWrap.innerHTML = `
-            <a href="${bookingLink}" class="item-order">Booking</a>
+            <a href="${waBookingLink}" class="item-order" target="_blank" rel="noopener" onclick="return gtag_report_conversion('${waBookingLink}');">Booking</a>
         `;
 
         card.classList.add('enhanced-item', 'reveal-item');
