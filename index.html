@@ -88,6 +88,11 @@
 }
 </script>
 
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <!-- CSS -->
 <link rel="stylesheet" href="style.css">
 
@@ -136,9 +141,9 @@
             </div>
 
             <div class="info">
-                <span>✔ Armada Lengkap</span>
-                <span>✔ Buka 24 Jam</span>
-                <span>✔ Driver Profesional</span>
+                <span>Armada Lengkap</span>
+                <span>Buka 24 Jam</span>
+                <span>Driver Profesional</span>
             </div>
         </div>
 
@@ -160,6 +165,7 @@
 
 <section class="armada" id="armada">
 
+    <span class="section-tag">Armada Kami</span>
     <h2>Daftar Armada & Harga</h2>
     <p class="armada-subtitle">Pilih paket sewa sesuai kebutuhan Anda. Setiap unit dilengkapi foto referensi model, info singkat kendaraan, dan tombol pemesanan cepat.</p>
 
@@ -262,6 +268,7 @@
 
 <!-- SYARAT KETENTUAN -->
 <section class="syarat" id="syarat">
+    <span class="section-tag">Informasi Sewa</span>
     <h2>Syarat & Ketentuan</h2>
     <div class="terms-grid">
         <div class="terms-card">
@@ -296,6 +303,7 @@
 
 <!-- TESTIMONI -->
 <section class="testimoni" id="testimoni">
+    <span class="section-tag">Ulasan Google</span>
     <h2>Testimoni Pelanggan</h2>
     <div class="testimoni-grid">
         <article class="testi-item">
@@ -315,6 +323,7 @@
 
 <!-- KRITIK DAN SARAN -->
 <section class="saran" id="saran">
+    <span class="section-tag">Masukan Anda</span>
     <h2>Kritik & Saran</h2>
     <p class="saran-subtitle">Masukan Anda sangat membantu kami meningkatkan kualitas layanan.</p>
     <form id="feedbackForm" class="feedback-form">
@@ -346,6 +355,7 @@
 
 <!-- TENTANG -->
 <section class="tentang" id="tentang">
+    <span class="section-tag">Profil Usaha</span>
     <h2>Tentang Kami</h2>
     <div class="tentang-grid">
         <div class="tentang-main">
@@ -378,6 +388,7 @@
 
 <!-- KONTAK -->
 <section class="kontak" id="kontak">
+    <span class="section-tag">Kontak</span>
     <h2>Hubungi Kami</h2>
     <div class="kontak-layout">
         <div class="kontak-grid">
@@ -401,7 +412,28 @@
 </section>
 
 <footer>
-    © 2026 A1 Rental Mobil & Motor Makassar - Buka 24 Jam
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="footer-logo">A1 Rental Mobil & Motor Makassar</span>
+            <p>Layanan sewa mobil dan motor 24 jam di Kota Makassar. Lepas kunci, include driver, paket all in, hingga antar jemput bandara.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigasi</h4>
+            <a href="#armada">Daftar Mobil</a>
+            <a href="#syarat">Syarat & Ketentuan</a>
+            <a href="#testimoni">Testimoni</a>
+            <a href="#tentang">Tentang Kami</a>
+        </div>
+        <div class="footer-col">
+            <h4>Kontak</h4>
+            <a href="https://wa.me/6282197448850" onclick="return gtag_report_conversion('https://wa.me/6282197448850');">WhatsApp: 0821-9744-8850</a>
+            <a href="mailto:a1rentmks@gmail.com">a1rentmks@gmail.com</a>
+            <a href="https://maps.app.goo.gl/TcPiTi96g9vByP3y5" target="_blank" rel="noopener">Pesona Prima Griya Blok D1 No.14/15, Makassar</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 A1 Rental Mobil & Motor Makassar — Buka 24 Jam Setiap Hari
+    </div>
 </footer>
 <script>
 function showCategory(id, evt) {
