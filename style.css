@@ -1,13 +1,14 @@
 :root {
-    --bg: #0a0a0b;
-    --surface: #131315;
-    --surface-2: #18181b;
-    --border: #232327;
-    --accent: #e8192c;
-    --accent-hover: #c31222;
+    --bg: #0b0b0b;
+    --surface: #141414;
+    --surface-2: #1a1a1a;
+    --border: rgba(255, 45, 45, 0.26);
+    --accent: #ff2b2b;
+    --accent-hover: #e01515;
+    --accent-grad: linear-gradient(135deg, #ff2e2e 0%, #9d0000 100%);
     --text: #f4f4f5;
-    --text-muted: #b9b9c0;
-    --text-dim: #84848c;
+    --text-muted: #d6d6d9;
+    --text-dim: #9a9aa0;
 }
 
 * {
@@ -30,7 +31,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at top right, rgba(232, 25, 44, 0.07), rgba(232, 25, 44, 0));
+    background: radial-gradient(circle at top right, rgba(255, 0, 0, 0.12), rgba(255, 0, 0, 0));
     pointer-events: none;
     z-index: -1;
 }
@@ -41,7 +42,7 @@ h1, h2, h3, h4 {
 
 .section-tag {
     display: block;
-    color: var(--accent);
+    color: var(--text-dim);
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -55,14 +56,14 @@ h1, h2, h3, h4 {
     justify-content: space-between;
     align-items: center;
     padding: 12px 80px;
-    background: rgba(10, 10, 11, 0.88);
+    background: linear-gradient(90deg, rgba(12, 12, 12, 0.92) 0%, rgba(29, 0, 0, 0.92) 55%, rgba(10, 10, 10, 0.92) 100%);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 70, 70, 0.3);
 }
 
 .logo-area img {
@@ -102,7 +103,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #fff;
+    color: #ff4d4d;
 }
 
 nav a::after {
@@ -121,12 +122,12 @@ nav a:hover::after {
 }
 
 .btn-nav {
-    background: var(--accent);
+    background: var(--accent-grad);
     color: #fff !important;
     padding: 9px 18px;
     border-radius: 10px;
     font-weight: 600;
-    transition: background 0.25s;
+    transition: box-shadow 0.25s, transform 0.25s;
 }
 
 .btn-nav::after {
@@ -134,7 +135,8 @@ nav a:hover::after {
 }
 
 .btn-nav:hover {
-    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(255, 0, 0, 0.35);
 }
 
 .menu-toggle {
@@ -173,7 +175,7 @@ nav a:hover::after {
 .hero {
     padding: 150px 80px 110px;
     background:
-        linear-gradient(110deg, rgba(10, 10, 11, 0.92) 0%, rgba(40, 4, 8, 0.72) 45%, rgba(9, 9, 10, 0.9) 100%),
+        linear-gradient(110deg, rgba(10, 10, 10, 0.88) 0%, rgba(50, 0, 0, 0.68) 45%, rgba(8, 8, 8, 0.86) 100%),
         url('https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1800');
     background-size: cover;
     background-position: center;
@@ -185,7 +187,7 @@ nav a:hover::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(10, 10, 11, 0.75) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(40, 0, 0, 0.45) 100%);
     z-index: 0;
 }
 
@@ -206,8 +208,8 @@ nav a:hover::after {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(232, 25, 44, 0.55) 50%, transparent 100%);
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 0, 0, 0.7) 50%, transparent 100%);
 }
 
 .hero h1 {
@@ -222,11 +224,11 @@ nav a:hover::after {
 }
 
 .badge {
-    background: rgba(232, 25, 44, 0.1);
-    border: 1px solid rgba(232, 25, 44, 0.35);
+    background: rgba(255, 43, 43, 0.12);
+    border: 1px solid rgba(255, 43, 43, 0.45);
     padding: 7px 14px;
     border-radius: 999px;
-    color: #ff6b78;
+    color: #ff5c5c;
     display: inline-block;
     margin-bottom: 22px;
     font-size: 13px;
@@ -294,8 +296,8 @@ nav a:hover::after {
     width: min(560px, 100%);
     border-radius: 18px;
     padding: 14px;
-    background: rgba(19, 19, 21, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: linear-gradient(145deg, #2a0000, #120000);
+    border: 1px solid rgba(255, 35, 35, 0.35);
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
     overflow: hidden;
 }
@@ -380,36 +382,36 @@ nav a:hover::after {
 }
 
 .btn-primary {
-    background: var(--accent);
+    background: var(--accent-grad);
     padding: 13px 26px;
     border-radius: 12px;
     color: white;
     font-weight: 600;
     font-size: 15px;
     text-decoration: none;
-    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .btn-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 60, 60, 0.6);
     padding: 13px 26px;
     border-radius: 12px;
-    color: #fff;
+    color: #ff5c5c;
     font-weight: 600;
     font-size: 15px;
     text-decoration: none;
-    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    transition: border-color 0.25s, background 0.25s, color 0.25s, transform 0.25s;
 }
 
 .btn-primary:hover {
-    background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(232, 25, 44, 0.25);
+    box-shadow: 0 12px 26px rgba(255, 0, 0, 0.35);
 }
 
 .btn-secondary:hover {
     border-color: var(--accent);
-    background: rgba(232, 25, 44, 0.08);
+    background: rgba(255, 43, 43, 0.1);
+    color: #ff7a7a;
     transform: translateY(-2px);
 }
 
@@ -454,7 +456,7 @@ nav a:hover::after {
 }
 
 .tentang h2 {
-    color: #fff;
+    color: #ff2b2b;
     margin-bottom: 28px;
     font-size: 32px;
     font-weight: 800;
@@ -507,7 +509,7 @@ nav a:hover::after {
 }
 
 .syarat {
-    background: #0d0d0e;
+    background: #101010;
 }
 
 .testimoni {
@@ -515,13 +517,13 @@ nav a:hover::after {
 }
 
 .saran {
-    background: #0d0d0e;
+    background: #101010;
 }
 
 .syarat h2,
 .testimoni h2,
 .saran h2 {
-    color: #fff;
+    color: #ff2b2b;
     margin-bottom: 28px;
     font-size: 32px;
     font-weight: 800;
@@ -549,7 +551,7 @@ nav a:hover::after {
     color: #fff;
     font-size: 17px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 45, 45, 0.2);
 }
 
 .terms-card ul {
@@ -587,7 +589,7 @@ nav a:hover::after {
 }
 
 .testi-item h4 {
-    color: var(--text-dim);
+    color: #ff4c4c;
     font-size: 13.5px;
     font-weight: 600;
 }
@@ -595,6 +597,74 @@ nav a:hover::after {
 .saran-subtitle {
     color: var(--text-dim);
     margin-bottom: 20px;
+}
+
+/* FAQ */
+.faq {
+    padding: 100px 80px;
+    background: var(--bg);
+}
+
+.faq h2 {
+    color: #ff2b2b;
+    margin-bottom: 28px;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.faq-list {
+    display: grid;
+    gap: 12px;
+    max-width: 860px;
+}
+
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 48px 18px 20px;
+    font-weight: 600;
+    font-size: 15.5px;
+    color: #fff;
+    position: relative;
+    transition: color 0.25s;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: 500;
+    transition: transform 0.25s;
+}
+
+.faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-item summary:hover {
+    color: #ff5c5c;
+}
+
+.faq-item p {
+    padding: 0 20px 18px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 14.5px;
 }
 
 .feedback-form {
@@ -618,7 +688,7 @@ nav a:hover::after {
 }
 
 .kontak h2 {
-    color: #fff;
+    color: #ff2b2b;
     margin-bottom: 28px;
     font-size: 32px;
     font-weight: 800;
@@ -642,7 +712,7 @@ nav a:hover::after {
     line-height: 1.7;
     color: var(--text-muted);
     padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 45, 45, 0.18);
 }
 
 .kontak-grid p:last-child {
@@ -682,8 +752,8 @@ nav a:hover::after {
 }
 
 footer {
-    background: #0b0b0c;
-    border-top: 1px solid var(--border);
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255, 70, 70, 0.25);
 }
 
 .footer-inner {
@@ -729,7 +799,7 @@ footer {
 }
 
 .footer-col a:hover {
-    color: #fff;
+    color: #ff4d4d;
 }
 
 .footer-bottom {
@@ -742,7 +812,7 @@ footer {
 /* ARMADA */
 .armada {
     padding: 100px 80px;
-    background: #0d0d0e;
+    background: #0f0f0f;
 }
 
 .armada .section-tag {
@@ -754,7 +824,7 @@ footer {
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 14px;
-    color: #fff;
+    color: #ff2b2b;
 }
 
 .armada-subtitle {
@@ -798,9 +868,9 @@ footer {
 }
 
 .item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
-    border-color: rgba(232, 25, 44, 0.45);
+    transform: translateY(-5px);
+    box-shadow: 0 18px 36px rgba(255, 0, 0, 0.25);
+    border-color: rgba(255, 0, 0, 0.5);
 }
 
 .item h4 {
@@ -830,7 +900,7 @@ footer {
 .item a {
     display: inline-block;
     padding: 8px 15px;
-    background: var(--accent);
+    background: var(--accent-grad);
     color: white;
     text-decoration: none;
     border-radius: 10px;
@@ -846,9 +916,9 @@ footer {
 }
 
 .filter-btn button {
-    background: var(--surface);
+    background: var(--surface-2);
     color: var(--text-muted);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 35, 35, 0.25);
     padding: 10px 20px;
     margin: 4px;
     border-radius: 10px;
@@ -856,19 +926,20 @@ footer {
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 
 .filter-btn button:hover {
-    border-color: rgba(232, 25, 44, 0.5);
+    border-color: rgba(255, 35, 35, 0.6);
     color: #fff;
 }
 
 .filter-btn .active {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--accent-grad);
+    border-color: transparent;
     color: #fff;
     font-weight: 600;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
 }
 
 .kategori-content {
@@ -899,9 +970,7 @@ footer {
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 14px;
-    background:
-        radial-gradient(circle at 50% 28%, rgba(232, 25, 44, 0.16), transparent 65%),
-        linear-gradient(180deg, #1d1d20 0%, #121214 100%);
+    background: radial-gradient(circle at center, #ff3b3b 0%, #b30000 45%, #4d0000 75%, #140000 100%);
     aspect-ratio: 4 / 3;
     padding: 10px;
 }
@@ -939,7 +1008,7 @@ footer {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.28));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(45, 0, 0, 0.35));
 }
 
 .vehicle-meta {
@@ -953,11 +1022,11 @@ footer {
 .vehicle-meta li {
     font-size: 11.5px;
     font-weight: 500;
-    border: 1px solid var(--border);
+    border: 1px solid #343434;
     padding: 4px 9px;
     border-radius: 999px;
     color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .item-actions {
@@ -978,13 +1047,13 @@ footer {
 }
 
 .item-order {
-    background: var(--accent);
+    background: var(--accent-grad);
     color: white;
 }
 
 .item-order:hover {
-    background: var(--accent-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(255, 0, 0, 0.3);
 }
 
 .reveal-item {
@@ -1019,8 +1088,8 @@ footer {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    background: #0f0f10;
-    border: 1px solid var(--border);
+    background: #111;
+    border: 1px solid #303030;
     color: #fff;
     border-radius: 10px;
     padding: 12px 13px;
@@ -1033,7 +1102,7 @@ footer {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(232, 25, 44, 0.14);
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.14);
 }
 
 @keyframes glowMove {
@@ -1103,6 +1172,7 @@ footer {
     .syarat,
     .testimoni,
     .saran,
+    .faq,
     .tentang,
     .kontak {
         padding-left: 24px;
@@ -1153,7 +1223,7 @@ footer {
     }
 
     nav a:hover {
-        background: rgba(232, 25, 44, 0.1);
+        background: rgba(255, 0, 0, 0.12);
     }
 
     .btn-nav {
@@ -1169,6 +1239,7 @@ footer {
     .syarat h2,
     .testimoni h2,
     .saran h2,
+    .faq h2,
     .tentang h2,
     .kontak h2 {
         text-align: center;
