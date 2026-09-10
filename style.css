@@ -898,6 +898,10 @@ footer {
     content: " / trip";
 }
 
+#bulanan .item p::after {
+    content: " / bulan";
+}
+
 .item a {
     display: inline-block;
     padding: 8px 15px;
@@ -992,6 +996,7 @@ footer {
 .item[data-model="innova reborn"] .vehicle-img,
 .item[data-model="terios"] .vehicle-img,
 .item[data-model="innova zenix hybrid"] .vehicle-img,
+.item[data-model="innova zenix v hybrid"] .vehicle-img,
 .item[data-model="new alphard"] .vehicle-img {
     object-fit: contain;
     object-position: center;
@@ -1001,6 +1006,7 @@ footer {
 .item[data-model="innova reborn"]:hover .vehicle-img,
 .item[data-model="terios"]:hover .vehicle-img,
 .item[data-model="innova zenix hybrid"]:hover .vehicle-img,
+.item[data-model="innova zenix v hybrid"]:hover .vehicle-img,
 .item[data-model="new alphard"]:hover .vehicle-img {
     transform: scale(1.02);
 }
