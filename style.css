@@ -997,6 +997,10 @@ footer {
 .item[data-model="terios"] .vehicle-img,
 .item[data-model="innova zenix hybrid"] .vehicle-img,
 .item[data-model="innova zenix v hybrid"] .vehicle-img,
+.item[data-model="veloz"] .vehicle-img,
+.item[data-model="veloz hev"] .vehicle-img,
+.item[data-model="brv"] .vehicle-img,
+.item[data-model="honda hrv"] .vehicle-img,
 .item[data-model="new alphard"] .vehicle-img {
     object-fit: contain;
     object-position: center;
@@ -1007,6 +1011,10 @@ footer {
 .item[data-model="terios"]:hover .vehicle-img,
 .item[data-model="innova zenix hybrid"]:hover .vehicle-img,
 .item[data-model="innova zenix v hybrid"]:hover .vehicle-img,
+.item[data-model="veloz"]:hover .vehicle-img,
+.item[data-model="veloz hev"]:hover .vehicle-img,
+.item[data-model="brv"]:hover .vehicle-img,
+.item[data-model="honda hrv"]:hover .vehicle-img,
 .item[data-model="new alphard"]:hover .vehicle-img {
     transform: scale(1.02);
 }
